@@ -97,4 +97,23 @@ body {
 .movie-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.submenu {
+    color: white;
+    list-style: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    #{$link-hover-selector} {
+        color: #30469d;
+        background-color: white;
+    }
+}
+
+.tablist {
+    display: flex;
+    justify-content: space-evenly;
 }
