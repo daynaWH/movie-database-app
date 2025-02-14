@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+body {
+    font-family: $body-font;
+}
+
+h1,
+h2 {
+    font-family: $heading-font;
+}
+
+h2 {
+    font-size: 0.8rem;
+}
+
+a {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+p {
+    font-size: 0.7rem;
+}
+
+h2,
+p {
+    margin: 0;
+}

@@ -1,5 +1,7 @@
 import { TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
 import { formatRating } from "../utilities/toolbelt";
+import rating from "../assets/rating-star.svg";
+import heart from "../assets/heart-default.svg";
 // {
 //     "adult": false,
 //     "backdrop_path": "/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
@@ -25,23 +27,31 @@ import { formatRating } from "../utilities/toolbelt";
 function MovieCard({ movieData }) {
     return (
         <div className="movie-card">
-            <img
-                src={`${TMDB_IMAGE_BASE_URL}/w342${movieData.poster_path}`}
-                alt={`Poster of ${movieData.title}`}
-            />
-            <div className="favorite-btn">
-                <button>♡</button>
-            </div>
-            <div className="movie-card-info-hover">
-                <p></p>
-                <a>More Info</a>
+            <div className="movie-backdrop">
+                <img
+                    src={`${TMDB_IMAGE_BASE_URL}/w342${movieData.poster_path}`}
+                    alt={`Poster of ${movieData.title}`}
+                />
+                {/* <div className="favorite-btn"> */}
+                <button className="favorite-btn">
+                    <img src={heart} alt="favorite button" />
+                </button>
+                {/* </div> */}
+                <div className="movie-card-info-hover">
+                    {/* <div className="movie-card-info-hover"> */}
+                    <p className="short-description">{movieData.overview}</p>
+                    <a href="">More Info</a>
+                    {/* </div> */}
+                </div>
             </div>
             <div className="movie-card-info">
-                <h2>{movieData.title}</h2>
-                <p>{movieData.release_date}</p>
+                <div>
+                    <h2>{movieData.title}</h2>
+                    <p>{movieData.release_date}</p>
+                </div>
                 <div className="rating">
                     <p>{formatRating(movieData.vote_average)}</p>
-                    {/* <p>{movieData.vote_average}</p> */}
+                    <img src={rating} alt="rating star" />
                 </div>
             </div>
         </div>
