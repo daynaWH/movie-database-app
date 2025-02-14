@@ -5,7 +5,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+nav li a {
     font-family: $heading-font;
 }
 
@@ -27,4 +28,13 @@ p {
 h2,
 p {
     margin: 0;
+}
+
+nav li a {
+    font-size: 1rem;
+
+    #{$link-hover-selector} {
+        color: #ffea3d;
+        border-bottom: solid 2px #ffea3d;
+    }
 }
