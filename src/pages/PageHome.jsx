@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { getNowPlayingMovies } from "../utilities/api";
 import { getPopularMovies } from "../utilities/api";
 import { getTopRatedMovies } from "../utilities/api";
+import { getNowPlayingMovies } from "../utilities/api";
 import { getUpcomingMovies } from "../utilities/api";
 import MovieCard from "../components/MovieCard";
-import { TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 function PageHome() {
     const [test, setTest] = useState(null);
@@ -16,10 +16,20 @@ function PageHome() {
     useEffect(() => {
         getPopularMovies()
             .then((data) => {
-                setNowPlayingMovies(data.results);
+                setPopularMovies(data.results);
             })
             .catch((error) => {
                 alert("Error fetching popular movies");
+            });
+    }, []);
+
+    useEffect(() => {
+        getTopRatedMovies()
+            .then((data) => {
+                setTopRatedMovies(data.results);
+            })
+            .catch((error) => {
+                alert("Error fetching top rated movies");
             });
     }, []);
 
@@ -34,13 +44,67 @@ function PageHome() {
             });
     }, []);
 
+    useEffect(() => {
+        getUpcomingMovies()
+            .then((data) => {
+                setUpcomingMovies(data.results);
+                console.log(data);
+            })
+            .catch((error) => {
+                alert("Error fetching upcoming movies");
+            });
+    }, []);
+
     return (
         <main id="home">
-            <div className="movie-list">
-                {nowPlayingMovies.map((movieData) => (
-                    <MovieCard key={movieData.id} movieData={movieData} />
-                ))}
-            </div>
+            <Tabs>
+                <TabList className="tablist">
+                    <Tab className="submenu">Popular</Tab>
+                    <Tab className="submenu">Top Rated</Tab>
+                    <Tab className="submenu">Now Playing</Tab>
+                    <Tab className="submenu">Upcoming</Tab>
+                </TabList>
+                <TabPanel>
+                    <div className="movie-list">
+                        {popularMovies.map((movieData) => (
+                            <MovieCard
+                                key={movieData.id}
+                                movieData={movieData}
+                            />
+                        ))}
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="movie-list">
+                        {topRatedMovies.map((movieData) => (
+                            <MovieCard
+                                key={movieData.id}
+                                movieData={movieData}
+                            />
+                        ))}
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="movie-list">
+                        {nowPlayingMovies.map((movieData) => (
+                            <MovieCard
+                                key={movieData.id}
+                                movieData={movieData}
+                            />
+                        ))}
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className="movie-list">
+                        {upcomingMovies.map((movieData) => (
+                            <MovieCard
+                                key={movieData.id}
+                                movieData={movieData}
+                            />
+                        ))}
+                    </div>
+                </TabPanel>
+            </Tabs>
         </main>
     );
 }
