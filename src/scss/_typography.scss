@@ -2,12 +2,18 @@
 
 body {
     font-family: $body-font;
+    color: white;
 }
 
 h1,
 h2,
 nav li a {
     font-family: $heading-font;
+}
+
+h1,
+h2 {
+    color: white;
 }
 
 h2 {

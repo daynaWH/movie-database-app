@@ -100,9 +100,58 @@ function getUpcomingMovies() {
         });
 }
 
+function getMovieById(id) {
+    const options = {
+        method: "GET",
+        headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+        },
+    };
+
+    return fetch(`https://api.themoviedb.org/3/movie/${id}`, options)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.log("Error fetching movie by id", error);
+            throw error;
+        });
+}
+
+function getCast(id) {
+    const options = {
+        method: "GET",
+        headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+        },
+    };
+
+    return fetch(
+        `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
+        options
+    )
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.log("Error fetching cast list", error);
+            throw error;
+        });
+}
+
 export {
     getNowPlayingMovies,
     getPopularMovies,
     getTopRatedMovies,
     getUpcomingMovies,
+    getMovieById,
+    getCast,
 };

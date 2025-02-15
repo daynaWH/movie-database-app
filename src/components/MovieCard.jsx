@@ -1,5 +1,6 @@
 import { TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
 import { formatRating } from "../utilities/toolbelt";
+import { NavLink } from "react-router-dom";
 import rating from "../assets/rating-star.svg";
 import heart from "../assets/heart-default.svg";
 // {
@@ -40,7 +41,7 @@ function MovieCard({ movieData }) {
                 <div className="movie-card-info-hover">
                     {/* <div className="movie-card-info-hover"> */}
                     <p className="short-description">{movieData.overview}</p>
-                    <a href="">More Info</a>
+                    <NavLink to={`/movie/${movieData.id}`}>More Info</NavLink>
                     {/* </div> */}
                 </div>
             </div>
