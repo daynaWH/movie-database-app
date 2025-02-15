@@ -17,9 +17,10 @@ function PageHome() {
         getPopularMovies()
             .then((data) => {
                 setPopularMovies(data.results);
+                console.log(data);
             })
             .catch((error) => {
-                alert("Error fetching popular movies");
+                console.error("Error fetching popular movies");
             });
     }, []);
 
@@ -29,7 +30,7 @@ function PageHome() {
                 setTopRatedMovies(data.results);
             })
             .catch((error) => {
-                alert("Error fetching top rated movies");
+                console.error("Error fetching top rated movies");
             });
     }, []);
 
@@ -37,10 +38,10 @@ function PageHome() {
         getNowPlayingMovies()
             .then((data) => {
                 setNowPlayingMovies(data.results);
-                console.log(data);
+                // console.log(data);
             })
             .catch((error) => {
-                alert("Error fetching now playing movies");
+                console.error("Error fetching now playing movies");
             });
     }, []);
 
@@ -48,10 +49,10 @@ function PageHome() {
         getUpcomingMovies()
             .then((data) => {
                 setUpcomingMovies(data.results);
-                console.log(data);
+                // console.log(data);
             })
             .catch((error) => {
-                alert("Error fetching upcoming movies");
+                console.error("Error fetching upcoming movies");
             });
     }, []);
 
