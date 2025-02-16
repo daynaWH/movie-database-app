@@ -1,4 +1,4 @@
-import { TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
+import { appTitle, TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatRating, formatRunTime } from "../utilities/toolbelt";
@@ -13,7 +13,9 @@ function PageSingleMovie() {
     const { id } = useParams();
 
     useEffect(() => {
-        document.title = `${appTitle} - ${movieData.title}`;
+        if (movieData) {
+            document.title = `${appTitle} - ${movieData.title}`;
+        }
     }, []);
 
     useEffect(() => {
@@ -67,18 +69,19 @@ function PageSingleMovie() {
                     <div className="cast">
                         {/* cast */}
                         <h2>Cast</h2>
-                        {movieCast.cast.map((actor) => {
-                            return (
-                                <div key={actor.cast_id}>
-                                    <img
-                                        src={`${TMDB_IMAGE_BASE_URL}/w185${actor.profile_path}`}
-                                        alt={`Profile picture of ${actor.name}`}
-                                    />
-                                    <p>{actor.name}</p>
-                                    <p>{actor.character}</p>
-                                </div>
-                            );
-                        })}
+                        {movieCast &&
+                            movieCast.cast.map((actor) => {
+                                return (
+                                    <div key={actor.cast_id}>
+                                        <img
+                                            src={`${TMDB_IMAGE_BASE_URL}/w185${actor.profile_path}`}
+                                            alt={`Profile picture of ${actor.name}`}
+                                        />
+                                        <p>{actor.name}</p>
+                                        <p>{actor.character}</p>
+                                    </div>
+                                );
+                            })}
                     </div>
                 </div>
             )}
