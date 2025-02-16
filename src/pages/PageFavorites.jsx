@@ -1,9 +1,10 @@
 import { useEffect, useContext } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { GlobalContext } from "../context/GlobalState";
 import { appTitle } from "../globals/globalVariables";
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
+import Dropdown from "../components/Dropdown";
 
 function PageFavorites() {
     const { favorites } = useContext(GlobalContext);
@@ -19,7 +20,7 @@ function PageFavorites() {
         <main>
             <h1>Favorites</h1>
             {favorites.length === 0 ? (
-                <div>
+                <div className="no-favorites-container">
                     <p>Sorry you have no favorite movies.</p>
                     <p>
                         Return to the <Link to="/">home page</Link> to add a
@@ -27,31 +28,8 @@ function PageFavorites() {
                     </p>
                 </div>
             ) : (
-                <div className="movie-list">
-                    {favorites.map((favMovie) => {
-                        return (
-                            <MovieCard key={favMovie.id} movieData={favMovie} />
-                        );
-                    })}
-                </div>
+                <Dropdown />
             )}
-            {/* <section>
-                {favs.length === 0 ? (
-                    <div>
-                        <p>Sorry you have no favorite movies.</p>
-                        <p>
-                            Return to the <Link to="/">home page</Link> to add a
-                            favorite movie.
-                        </p>
-                    </div>
-                ) : (
-                    <div>
-                        {favs.map((favMovie, i) => {
-                            return <MovieCard key={i} />;
-                        })}
-                    </div>
-                )}
-            </section> */}
         </main>
     );
 }
