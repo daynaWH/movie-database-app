@@ -30,11 +30,24 @@ header {
         button {
             background-color: transparent;
             border: none;
+            cursor: pointer;
         }
 
         img {
             height: 1.5rem;
         }
+    }
+
+    div.visible {
+        display: block;
+        background-color: white;
+    }
+    div.hidden {
+        display: none;
+    }
+
+    button.hidden {
+        display: none;
     }
 }
 
@@ -46,4 +59,11 @@ footer {
     a {
         margin: 0 0.5rem;
     }
+}
+
+div.open {
+    display: block;
+    background-color: white;
+    position: static;
+    height: 20rem;
 }
