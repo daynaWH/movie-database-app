@@ -127,3 +127,43 @@ main {
         height: 2rem;
     }
 }
+
+span.active {
+    width: 1rem;
+    height: 1rem;
+}
+
+span.default {
+    width: 1rem;
+    height: 1rem;
+}
+
+.hero-slider {
+    display: flex;
+    flex-wrap: nowrap;
+
+    span {
+        display: flex;
+        position: fixed;
+    }
+
+    button {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    button.active {
+        background-color: yellow;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .visible {
+        display: block;
+    }
+}

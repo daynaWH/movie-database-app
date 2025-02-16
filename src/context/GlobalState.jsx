@@ -30,7 +30,7 @@ function GlobalProvider({ children }) {
         getPopularMovies()
             .then((data) => {
                 setPopularMovies(data.results);
-                console.log(data);
+                // console.log(data);
             })
             .catch((error) => {
                 console.error("Error fetching popular movies");
@@ -52,6 +52,7 @@ function GlobalProvider({ children }) {
             .then((data) => {
                 setNowPlayingMovies(data.results);
                 // console.log(data);
+                console.log(data.results);
             })
             .catch((error) => {
                 console.error("Error fetching now playing movies");
@@ -82,7 +83,7 @@ function GlobalProvider({ children }) {
         setFavorites(newFavorites);
     }
 
-    console.log(favorites);
+    // console.log(favorites);
 
     return (
         <GlobalContext.Provider
