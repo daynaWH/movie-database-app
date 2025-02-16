@@ -5,6 +5,7 @@ import { getNowPlayingMovies } from "../utilities/api";
 import { getUpcomingMovies } from "../utilities/api";
 import MovieCard from "../components/MovieCard";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { appTitle } from "../globals/globalVariables";
 
 function PageHome() {
     const [test, setTest] = useState(null);
@@ -12,6 +13,10 @@ function PageHome() {
     const [popularMovies, setPopularMovies] = useState([]);
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
+
+    useEffect(() => {
+        document.title = `${appTitle} - Movies`;
+    }, []);
 
     useEffect(() => {
         getPopularMovies()

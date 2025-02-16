@@ -13,6 +13,10 @@ function PageSingleMovie() {
     const { id } = useParams();
 
     useEffect(() => {
+        document.title = `${appTitle} - ${movieData.title}`;
+    }, []);
+
+    useEffect(() => {
         getMovieById(id)
             .then((data) => {
                 setMovieData(data);
