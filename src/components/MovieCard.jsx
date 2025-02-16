@@ -1,8 +1,12 @@
 import { TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
 import { formatRating } from "../utilities/toolbelt";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import rating from "../assets/rating-star.svg";
 import heart from "../assets/heart-default.svg";
+import heartToggled from "../assets/heart-toggled.svg";
+// import { useDispatch } from "react-redux";
+import FavBtn from "./FavBtn";
+
 // {
 //     "adult": false,
 //     "backdrop_path": "/zOpe0eHsq0A2NvNyBbtT6sj53qV.jpg",
@@ -26,6 +30,16 @@ import heart from "../assets/heart-default.svg";
 // }
 
 function MovieCard({ movieData }) {
+    // const dispatch = useDispatch();
+
+    // function handleFavClick(addToFav, obj) {
+    //     if (addToFav === true) {
+    //         dispatch(addFav(obj));
+    //     } else {
+    //         dispatch(deleteFav(obj));
+    //     }
+    // }
+
     return (
         <div className="movie-card">
             <div className="movie-backdrop">
@@ -34,14 +48,12 @@ function MovieCard({ movieData }) {
                     alt={`Poster of ${movieData.title}`}
                 />
                 {/* <div className="favorite-btn"> */}
-                <button className="favorite-btn">
-                    <img src={heart} alt="favorite button" />
-                </button>
+                <FavBtn movie={movieData} />
                 {/* </div> */}
                 <div className="movie-card-info-hover">
                     {/* <div className="movie-card-info-hover"> */}
                     <p className="short-description">{movieData.overview}</p>
-                    <NavLink to={`/movie/${movieData.id}`}>More Info</NavLink>
+                    <Link to={`/movie/${movieData.id}`}>More Info</Link>
                     {/* </div> */}
                 </div>
             </div>
