@@ -46,7 +46,7 @@ function PageHome() {
                     key={movieData.id}
                     className={sliderIndex === index ? "visible" : "hidden"}
                 >
-                    <div>
+                    <div className="banner-info">
                         <h1>{movieData.title}</h1>
                         <p>{movieData.overview}</p>
                     </div>
@@ -68,11 +68,6 @@ function PageHome() {
                     sliderIndex={sliderIndex}
                     setSliderIndex={setSliderIndex}
                 />
-                {/* <span>
-                    {bannerMovieSet.map((movieData, index) => {
-                        return <button key={index}></button>;
-                    })}
-                </span> */}
             </div>
 
             <Tabs>

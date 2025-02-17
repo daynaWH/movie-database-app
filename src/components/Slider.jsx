@@ -5,7 +5,7 @@ function Slider({ data, sliderIndex, setSliderIndex }) {
         <>
             {data.map((item, index) => {
                 return (
-                    <span key={index}>
+                    <div key={index} className="slider-btns">
                         {data.map((movieData, index) => {
                             return (
                                 <button
@@ -21,7 +21,7 @@ function Slider({ data, sliderIndex, setSliderIndex }) {
                                 ></button>
                             );
                         })}
-                    </span>
+                    </div>
                 );
             })}
         </>

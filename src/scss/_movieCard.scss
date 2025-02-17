@@ -1,0 +1,98 @@
+@use "variables" as *;
+
+.movie-card {
+    width: 10rem;
+    position: relative;
+    margin: 1rem;
+
+    img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .favorite-btn {
+        border-radius: 100%;
+        width: 2rem;
+        height: 2rem;
+        margin: 0.3rem;
+
+        img {
+            width: 1.5rem;
+            z-index: 2;
+            top: 9px;
+            left: 9px;
+        }
+    }
+}
+
+.movie-backdrop,
+.movie-card-info-hover {
+    height: 15rem;
+}
+
+.movie-card-info-hover {
+    position: absolute;
+    top: 0;
+    background-color: #000000d7;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 0;
+
+    #{$link-hover-selector} {
+        opacity: 100%;
+    }
+
+    p {
+        // Reference for text truncation:
+        // https://stackoverflow.com/questions/33058004/applying-an-ellipsis-to-multiline-text
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        width: 75%;
+        text-overflow: ellipsis;
+    }
+
+    a {
+        border: solid 1px;
+        border-radius: 0.3rem;
+        padding: 0.3rem;
+
+        #{$link-hover-selector} {
+            color: #30469d;
+            background-color: white;
+        }
+    }
+}
+
+.movie-card-info {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    max-width: 10rem;
+
+    h2 {
+        max-width: 7.5rem;
+    }
+}
+
+.rating {
+    p {
+        position: absolute;
+        color: black;
+        font-weight: 800;
+        bottom: 1rem;
+        right: 0.5rem;
+    }
+
+    img {
+        width: 2rem;
+        right: 0;
+        bottom: 0.5rem;
+    }
+}
