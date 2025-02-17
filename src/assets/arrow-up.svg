@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 146)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+        fill-rule: evenodd;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: .3px;
+      }
+    </style>
+  </defs>
+  <g id="SVGRepo_iconCarrier">
+    <path class="st0" d="M29.9,60.3h457.1V.1H29.9v60.2ZM29.9,150.6h457.1v-60.2H29.9v60.2ZM105.4,323.8l46.2,42.6,74.8-69v214.5h65.3v-214.5l74.8,69,46.2-42.6-153.7-141.7-153.7,141.7Z"/>
+  </g>
+</svg>

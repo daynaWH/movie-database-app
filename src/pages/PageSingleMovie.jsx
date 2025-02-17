@@ -2,12 +2,15 @@ import { appTitle, TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatRating, formatRunTime } from "../utilities/toolbelt";
-import { getMovieById, getCast } from "../utilities/api";
+import { getMovieById, getCast, getTrailer } from "../utilities/api";
 import rating from "../assets/rating-star.svg";
+import profileUnavailable from "../assets/profile-unavailable.png";
+import ProfileTrailerSlider from "../components/ProfileTrailerSlider";
 
 function PageSingleMovie() {
     const [movieData, setMovieData] = useState(null);
     const [movieCast, setMovieCast] = useState(null);
+    const [movieTrailer, setMovieTrailer] = useState(null);
 
     // fetch the id parameter from react router using useParams
     const { id } = useParams();
@@ -40,6 +43,17 @@ function PageSingleMovie() {
             });
     }, [id]);
 
+    useEffect(() => {
+        getTrailer(id)
+            .then((data) => {
+                setMovieTrailer(data.results);
+                console.log(data.results);
+            })
+            .catch(() => {
+                console.error("Error fetching trailer");
+            });
+    }, [id]);
+
     return (
         <main className="single">
             {movieData && (
@@ -52,10 +66,10 @@ function PageSingleMovie() {
                         <img src={rating} alt="rating star" />
                     </div>
                     <p>{formatRating(movieData.vote_average)}</p>
-                    <div>
-                        <img
-                            src={`${TMDB_IMAGE_BASE_URL}/w1280${movieData.backdrop_path}`}
-                            alt={`Backdrop of ${movieData.title}`}
+                    <div className="hero-slider">
+                        <ProfileTrailerSlider
+                            movieData={movieData}
+                            movieTrailer={movieTrailer}
                         />
                     </div>
                     <div>
@@ -66,17 +80,26 @@ function PageSingleMovie() {
                     </div>
                     <h2>Synopsis</h2>
                     <p>{movieData.overview}</p>
+                    {/* cast */}
+                    <h2>Cast</h2>
                     <div className="cast">
-                        {/* cast */}
-                        <h2>Cast</h2>
                         {movieCast &&
                             movieCast.cast.map((actor) => {
                                 return (
                                     <div key={actor.cast_id}>
-                                        <img
-                                            src={`${TMDB_IMAGE_BASE_URL}/w185${actor.profile_path}`}
-                                            alt={`Profile picture of ${actor.name}`}
-                                        />
+                                        {actor.profile_path ? (
+                                            <img
+                                                src={`${TMDB_IMAGE_BASE_URL}/w185${actor.profile_path}`}
+                                                alt={`Profile picture of ${actor.name}`}
+                                            />
+                                        ) : (
+                                            <img
+                                                src={profileUnavailable}
+                                                // Image from https://pixabay.com/vectors/avatar-icon-placeholder-facebook-1577909/
+                                                alt="Unavailable profile picture"
+                                                className="profile-unavailable"
+                                            />
+                                        )}
                                         <p>{actor.name}</p>
                                         <p>{actor.character}</p>
                                     </div>

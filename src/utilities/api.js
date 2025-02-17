@@ -147,6 +147,31 @@ function getCast(id) {
         });
 }
 
+function getTrailer(id) {
+    const options = {
+        method: "GET",
+        headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+        },
+    };
+
+    return fetch(
+        `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
+        options
+    )
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.log("Error fetching trailer", error);
+            throw error;
+        });
+}
+
 export {
     getNowPlayingMovies,
     getPopularMovies,
@@ -154,4 +179,5 @@ export {
     getUpcomingMovies,
     getMovieById,
     getCast,
+    getTrailer,
 };

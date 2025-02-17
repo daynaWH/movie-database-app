@@ -1,14 +1,6 @@
 import { useState } from "react";
 
 function Slider({ data, sliderIndex, setSliderIndex }) {
-    // const [sliderIndex, setSliderIndex] = useState(0);
-
-    function carouselHandler() {}
-
-    // function btnHandler(i) {
-    //     setSliderIndex(i);
-    // }
-
     return (
         <>
             {data.map((item, index) => {

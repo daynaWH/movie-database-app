@@ -1,0 +1,28 @@
+.poster {
+    position: relative;
+
+    img {
+        position: absolute;
+        height: 100%;
+    }
+
+    .backdrop {
+        z-index: -1;
+        opacity: 0.5;
+    }
+}
+
+.cast {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 5rem;
+    width: 90%;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    overflow-x: scroll;
+    scrollbar-color: rgb(0, 0, 0) rgb(255, 255, 255);
+
+    img {
+        height: 10rem;
+    }
+}
