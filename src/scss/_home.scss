@@ -56,9 +56,14 @@ main {
     }
 
     p {
-        height: 5rem;
+        // Reference for text truncation:
+        // https://stackoverflow.com/questions/33058004/applying-an-ellipsis-to-multiline-text
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
         overflow: hidden;
-        width: 80%;
+        width: 75%;
+        text-overflow: ellipsis;
     }
 
     a {
