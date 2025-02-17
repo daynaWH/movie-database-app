@@ -20,14 +20,6 @@ function FavBtn({ movie }) {
         }
     }
 
-    // function handleAddFav() {
-    //     handleFavClick(true, movie);
-    // }
-
-    // function handleRemoveFav() {
-    //     handleFavClick(false, movie);
-    // }
-
     return (
         <>
             <button onClick={handleFavClick} className="favorite-btn">
@@ -37,15 +29,6 @@ function FavBtn({ movie }) {
                     <img src={heartToggled} alt="favorite button" />
                 )}
             </button>
-            {/* {isFav ? (
-                <button onClick={handleFavClick} className="favorite-btn">
-                    <img src={heart} alt="favorite button" />
-                </button>
-            ) : (
-                <button onClick={handleFavClick} className="favorite-btn">
-                    <img src={heartToggled} alt="favorite button" />
-                </button>
-            )} */}
         </>
     );
 }
