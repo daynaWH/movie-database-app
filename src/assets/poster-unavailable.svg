@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 619.91 798.11">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #9dbadc;
+      }
+
+      .cls-2 {
+        stroke: #231f20;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 61.73px;
+      }
+
+      .cls-4, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+        stroke-width: 10px;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="3.96" y="3.06" width="612" height="792"/>
+  <line class="cls-3" x1="3.96" y1="3.06" x2="615.96" y2="795.06"/>
+  <line class="cls-3" x1="3.96" y1="795.06" x2="615.96" y2="3.06"/>
+  <line class="cls-3" x1="3.96" y1="3.06" x2="615.96" y2="795.06"/>
+  <rect class="cls-1" x="45.94" y="318.12" width="556.52" height="125"/>
+  <text class="cls-4" transform="translate(61.48 399.06)"><tspan class="cls-7" x="0" y="0">P</tspan><tspan class="cls-6" x="31.3" y="0">os</tspan><tspan class="cls-9" x="89.63" y="0">t</tspan><tspan x="109.7" y="0">er Not </tspan><tspan class="cls-8" x="281.93" y="0">A</tspan><tspan class="cls-10" x="318.41" y="0">v</tspan><tspan class="cls-5" x="347.86" y="0">ailable</tspan></text>
+</svg>

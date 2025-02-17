@@ -5,7 +5,7 @@ import { formatRating, formatRunTime } from "../utilities/toolbelt";
 import { getMovieById, getCast, getTrailer } from "../utilities/api";
 import rating from "../assets/rating-star.svg";
 import profileUnavailable from "../assets/profile-unavailable.png";
-import ProfileTrailerSlider from "../components/ProfileTrailerSlider";
+import PosterTrailerSlider from "../components/PosterTrailerSlider";
 
 function PageSingleMovie() {
     const [movieData, setMovieData] = useState(null);
@@ -55,57 +55,73 @@ function PageSingleMovie() {
     }, [id]);
 
     return (
-        <main className="single">
+        <main className="single-movie">
             {movieData && (
                 <div>
                     <h1>{movieData.title}</h1>
-                    {movieData.genres.map((genre) => {
-                        return <p key={genre.id}>{genre.name}</p>;
-                    })}
-                    <div className="rating">
-                        <img src={rating} alt="rating star" />
+                    <div className="single-subheading">
+                        <div className="genre">
+                            {movieData.genres.map((genre) => {
+                                return <p key={genre.id}>{genre.name}</p>;
+                            })}
+                        </div>
+                        <div className="rating">
+                            <img src={rating} alt="rating star" />
+                            <p>{formatRating(movieData.vote_average)}</p>
+                        </div>
                     </div>
-                    <p>{formatRating(movieData.vote_average)}</p>
-                    <div className="hero-slider">
-                        <ProfileTrailerSlider
+                    <section className="slider-wrapper">
+                        <PosterTrailerSlider
                             movieData={movieData}
                             movieTrailer={movieTrailer}
                         />
-                    </div>
-                    <div>
-                        {/* release date (yyyy/mm/dd) | running time ([h]h [m]min) | PG(replace with i.e. country) */}
-                        <p>{movieData.release_date}</p>
-                        <p>{formatRunTime(movieData.runtime)}</p>
-                        <p>{movieData.origin_country}</p>
-                    </div>
-                    <h2>Synopsis</h2>
-                    <p>{movieData.overview}</p>
-                    {/* cast */}
-                    <h2>Cast</h2>
-                    <div className="cast">
-                        {movieCast &&
-                            movieCast.cast.map((actor) => {
-                                return (
-                                    <div key={actor.cast_id}>
-                                        {actor.profile_path ? (
-                                            <img
-                                                src={`${TMDB_IMAGE_BASE_URL}/w185${actor.profile_path}`}
-                                                alt={`Profile picture of ${actor.name}`}
-                                            />
-                                        ) : (
-                                            <img
-                                                src={profileUnavailable}
-                                                // Image from https://pixabay.com/vectors/avatar-icon-placeholder-facebook-1577909/
-                                                alt="Unavailable profile picture"
-                                                className="profile-unavailable"
-                                            />
-                                        )}
-                                        <p>{actor.name}</p>
-                                        <p>{actor.character}</p>
-                                    </div>
-                                );
-                            })}
-                    </div>
+                    </section>
+                    <section className="section-bottom">
+                        <div className="basic-info">
+                            <p>{movieData.release_date}</p>
+                            <p>{formatRunTime(movieData.runtime)}</p>
+                            <p>{movieData.origin_country}</p>
+                        </div>
+                        <div className="synopsis">
+                            <h2>Synopsis</h2>
+                            <p>{movieData.overview}</p>
+                        </div>
+                        {/* cast */}
+                        <h2>Cast</h2>
+                        <div className="cast">
+                            {movieCast &&
+                                movieCast.cast.map((actor) => {
+                                    return (
+                                        <div
+                                            key={actor.cast_id}
+                                            className="cast-info"
+                                        >
+                                            {actor.profile_path ? (
+                                                <img
+                                                    src={`${TMDB_IMAGE_BASE_URL}/w185${actor.profile_path}`}
+                                                    alt={`Profile picture of ${actor.name}`}
+                                                />
+                                            ) : (
+                                                <img
+                                                    src={profileUnavailable}
+                                                    // Image from https://pixabay.com/vectors/avatar-icon-placeholder-facebook-1577909/
+                                                    alt="Unavailable profile picture"
+                                                    className="profile-unavailable"
+                                                />
+                                            )}
+                                            <div className="cast-info-hover">
+                                                <p className="cast-name">
+                                                    {actor.name}
+                                                </p>
+                                                <p className="cast-character">
+                                                    {actor.character}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                        </div>
+                    </section>
                 </div>
             )}
         </main>
