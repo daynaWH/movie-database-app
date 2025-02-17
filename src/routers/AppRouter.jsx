@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "../context/GlobalState";
-import HeaderNav from "../components/HeaderNav";
-// import Nav from "../components/Nav";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PageHome from "../pages/PageHome";
 import PageSingleMovie from "../pages/PageSingleMovie";
@@ -13,8 +12,7 @@ function AppRouter() {
     return (
         <BrowserRouter>
             <GlobalProvider>
-                <HeaderNav />
-                {/* <Nav /> */}
+                <Header />
                 <Routes>
                     <Route path="/" element={<PageHome />} />
                     <Route path="/movie/:id" element={<PageSingleMovie />} />

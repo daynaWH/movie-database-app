@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 body {
     font-family: $body-font;
@@ -37,10 +38,12 @@ p {
 }
 
 nav li a {
-    font-size: 1rem;
-
+    font-size: 2rem;
     #{$link-hover-selector} {
         color: #ffea3d;
         border-bottom: solid 2px #ffea3d;
+    }
+    @include mq($tablet) {
+        font-size: 1rem;
     }
 }

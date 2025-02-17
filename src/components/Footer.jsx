@@ -5,7 +5,11 @@ function Footer() {
     return (
         <footer>
             <NavLink to="/">
-                <img src={logo} alt="" />
+                <img
+                    src={logo}
+                    alt="Logo of the application"
+                    className="logo"
+                />
             </NavLink>
             <div>
                 <a href="#">Privacy Policy</a>
