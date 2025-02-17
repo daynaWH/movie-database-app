@@ -15,6 +15,27 @@ body {
     background-color: #171717;
 }
 
+#root {
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: 5rem auto 8rem;
+}
+
 main {
-    margin: 5rem auto;
+    margin: 0 auto;
+    grid-area: main;
+    width: 100vw;
+}
+
+header {
+    grid-area: header;
+}
+
+footer {
+    grid-area: footer;
+    margin-top: 2rem;
 }

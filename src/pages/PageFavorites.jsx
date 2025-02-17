@@ -1,9 +1,7 @@
 import { useEffect, useContext } from "react";
-// import { useSelector } from "react-redux";
 import { GlobalContext } from "../context/GlobalState";
 import { appTitle } from "../globals/globalVariables";
 import { Link } from "react-router-dom";
-import MovieCard from "../components/MovieCard";
 import Dropdown from "../components/Dropdown";
 
 function PageFavorites() {
@@ -17,7 +15,7 @@ function PageFavorites() {
     }, []);
 
     return (
-        <main>
+        <main className="favorites">
             <h1>Favorites</h1>
             {favorites.length === 0 ? (
                 <div className="no-favorites-container">
