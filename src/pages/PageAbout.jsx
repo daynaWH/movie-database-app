@@ -11,20 +11,23 @@ function PageAbout() {
     }, []);
 
     return (
-        <main>
-            <h1>About Us</h1>
-            <p>
-                Scenema is a movie database website where you can explore movies
-                from a wide range of genres from all over the world. We provide
-                information about each movie and you can also save your favorite
-                movie list.
-            </p>
-            <p>
-                Now take your time to choose your new favorite movie and enjoy
-                the show!
-            </p>
+        <main className="about">
+            <section className="about-us">
+                <h1>About Us</h1>
+                <p>
+                    Scenema is a movie database website where you can explore
+                    movies from a wide range of genres from all over the world.
+                    We provide information about each movie and you can also
+                    save your favorite movie list.
+                </p>
+                <p>
+                    Now take your time to choose your new favorite movie and
+                    enjoy the show!
+                </p>
+            </section>
             <section className="contact">
                 <h2>Contact Us</h2>
+                {/* <div className="contact-icons"> */}
                 <a href="tel:+##########">
                     <img src={phoneIcon} alt="Phone Icon" />
                 </a>
@@ -37,6 +40,7 @@ function PageAbout() {
                 <a href="#">
                     <img src={instaIcon} alt="Instagram Icon" />
                 </a>
+                {/* </div> */}
             </section>
         </main>
     );
