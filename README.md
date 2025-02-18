@@ -1,8 +1,8 @@
-# React + Vite
+# Movie Database App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Overview</h2>
+<ul>
+  <li>A movie database app named 'Scenema' built with React.</li>
+  <li>Responsive design suitable for different screen sizes.</li>
+  <li>Created as a project for the BCIT FWD program.</li>
+</ul>
