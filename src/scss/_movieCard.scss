@@ -75,6 +75,7 @@
     display: flex;
     justify-content: space-between;
     max-width: 10rem;
+    line-height: 1.7;
 
     h2 {
         max-width: 7.5rem;
@@ -82,11 +83,12 @@
 }
 
 .rating {
+    position: relative;
     p {
         position: absolute;
         color: black;
         font-weight: 800;
-        bottom: 1rem;
+        bottom: 0.8rem;
         right: 0.5rem;
     }
 

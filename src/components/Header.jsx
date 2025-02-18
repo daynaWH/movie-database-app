@@ -39,35 +39,45 @@ function Header() {
     }
 
     // Search Bar Toggle
-    const [toggled, setToggled] = useState(false);
+    // Completed with support from Copilot
+    const [toggleSearch, setToggleSearch] = useState(false);
 
     function openSearch() {
-        setToggled(!toggled);
+        setToggleSearch(!toggleSearch);
     }
 
     function searchMovie(e) {
         e.preventDefault();
         const searchInput = e.target.value;
         setSearchInput(searchInput);
-
+    }
+    useEffect(() => {
         const allMovies = [
             ...popularMovies,
             ...topRatedMovies,
             ...nowPlayingMovies,
             ...upcomingMovies,
         ];
+
+        // Built Array of Objects removing duplicates
+        // Based on reference from https://fullstackheroes.com/tutorials/javascript/5-ways-to-remove-duplicate-objects-from-array-based-on-property/?utm_source=chatgpt.com
+        const uniqueMovies = allMovies.filter(
+            (value, index, self) =>
+                index === self.findIndex((movie) => movie.title === value.title)
+        );
+
         if (searchInput.length > 0) {
-            const matches = allMovies.filter((movie) => {
+            const matches = uniqueMovies.filter((movie) => {
                 return movie.title
                     .toLowerCase()
                     .includes(searchInput.toLowerCase());
             });
             setFilteredMovie(matches);
-            filteredMovie.map((movie) => {
-                console.log(movie.title);
-            });
+        } else {
+            // This ensures movie cards are updated whenever the search input changes
+            setFilteredMovie([]);
         }
-    }
+    }, [searchInput]);
 
     return (
         <div>
@@ -96,7 +106,9 @@ function Header() {
                     {/* <Nav handletoggleNav={toggleNav} /> */}
                     {/* <Nav /> */}
                     <nav
-                        className={navOpen ? "nav-menu toggled" : "nav-menu"}
+                        className={
+                            navOpen ? "nav-menu toggleSearch" : "nav-menu"
+                        }
                         onClick={toggleNav}
                     >
                         <ul>
@@ -113,11 +125,15 @@ function Header() {
                     </nav>
                     <button
                         onClick={openSearch}
-                        className={toggled ? "" : "search-icon light"}
+                        className={toggleSearch ? "" : "search-icon light"}
                     >
                         <img src={searchIcon} alt="Search icon" />
                     </button>
-                    <div className={toggled ? "searchbar" : "searchbar-hidden"}>
+                    <div
+                        className={
+                            toggleSearch ? "searchbar" : "searchbar-hidden"
+                        }
+                    >
                         <button
                             onClick={openSearch}
                             className="search-icon dark"
@@ -128,15 +144,23 @@ function Header() {
                     </div>
                 </div>
             </header>
-            {searchInput.length > 0 ? (
-                <div className="search-results">
-                    {filteredMovie.map((movie) => {
-                        return <MovieCard key={movie.id} movieData={movie} />;
-                    })}
-                </div>
-            ) : (
-                <div className="close"></div>
-            )}
+            {/* {searchInput.length > 0 && toggleSearch === true ? ( */}
+            <div
+                className={
+                    searchInput.length > 0 && toggleSearch === true
+                        ? "search-results"
+                        : "search-results-close"
+                }
+            >
+                {filteredMovie.map((movie, index) => {
+                    const key = `${movie.id}-${index}`; // Assuming `source` is a property indicating the movie's array origin
+                    return <MovieCard key={key} movieData={movie} />;
+                    // return <MovieCard key={movie.id} movieData={movie} />;
+                })}
+            </div>
+            {/* ) : ( */}
+            {/* <div className="search-results-close"></div> */}
+            {/* )} */}
         </div>
     );
 }
