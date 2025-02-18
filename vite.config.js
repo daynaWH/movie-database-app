@@ -7,4 +7,8 @@ export default defineConfig({
     css: {
         devSourcemap: true,
     },
+    base: "/movie-database-app/",
+    build: {
+        outDir: "movie-database-app",
+    },
 });

@@ -7,10 +7,11 @@ import PageSingleMovie from "../pages/PageSingleMovie";
 import PageFavorites from "../pages/PageFavorites";
 import PageAbout from "../pages/PageAbout";
 import PageNotFound from "../pages/PageNotFound";
+import { APP_FOLDER_NAME } from "../globals/globalVariables";
 
 function AppRouter() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
             <GlobalProvider>
                 <HeaderNav />
                 <Routes>
