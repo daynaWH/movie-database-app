@@ -1,14 +1,14 @@
 import { useEffect, useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { NavLink } from "react-router-dom";
-import Nav from "./Nav";
 import MovieCard from "./MovieCard";
 import logo from "../assets/logo.svg";
 import searchIcon from "../assets/search-icon-light.svg";
 import searchIconToggled from "../assets/search-icon-dark.svg";
 import hamburgerIcon from "../assets/hamburger-menu-white.svg";
+import closeBtn from "../assets/btn-close.svg";
 
-function Header() {
+function HeaderNav() {
     const [navOpen, setNavOpen] = useState(false);
     const [searchInput, setSearchInput] = useState("");
     const [filteredMovie, setFilteredMovie] = useState([]);
@@ -74,7 +74,6 @@ function Header() {
             });
             setFilteredMovie(matches);
         } else {
-            // This ensures movie cards are updated whenever the search input changes
             setFilteredMovie([]);
         }
     }, [searchInput]);
@@ -82,8 +81,6 @@ function Header() {
     return (
         <div>
             <header>
-                {/* <header className={navOpen ? "nav-open" : "header-hidden"}> */}
-                {/* <div className={navOpen ? "" : "header-hidden"}> */}
                 <button
                     className="hamburger-icon"
                     onMouseDown={(e) => {
@@ -91,7 +88,6 @@ function Header() {
                     }}
                     onClick={toggleNav}
                 >
-                    {/* <button className="hamburger-icon"> */}
                     <img src={hamburgerIcon} alt="Hamburger icon" />
                 </button>
                 <NavLink to="/">
@@ -101,17 +97,21 @@ function Header() {
                         className="logo"
                     />
                 </NavLink>
-                {/* </div> */}
                 <div className="header-nav">
-                    {/* <Nav handletoggleNav={toggleNav} /> */}
-                    {/* <Nav /> */}
                     <nav
-                        className={
-                            navOpen ? "nav-menu toggleSearch" : "nav-menu"
-                        }
+                        className={navOpen ? "nav-menu toggled" : "nav-menu"}
                         onClick={toggleNav}
                     >
+                        <button
+                            onClick={toggleNav}
+                            className="close-btn mobile-only"
+                        >
+                            <img src={closeBtn} alt="Close button" />
+                        </button>
                         <ul>
+                            <li className="mobile-only">
+                                <img src={logo} alt="Logo" />
+                            </li>
                             <li>
                                 <NavLink to="/">Movies</NavLink>
                             </li>
@@ -144,7 +144,6 @@ function Header() {
                     </div>
                 </div>
             </header>
-            {/* {searchInput.length > 0 && toggleSearch === true ? ( */}
             <div
                 className={
                     searchInput.length > 0 && toggleSearch === true
@@ -152,17 +151,12 @@ function Header() {
                         : "search-results-close"
                 }
             >
-                {filteredMovie.map((movie, index) => {
-                    const key = `${movie.id}-${index}`; // Assuming `source` is a property indicating the movie's array origin
-                    return <MovieCard key={key} movieData={movie} />;
-                    // return <MovieCard key={movie.id} movieData={movie} />;
+                {filteredMovie.map((movie) => {
+                    return <MovieCard key={movie.id} movieData={movie} />;
                 })}
             </div>
-            {/* ) : ( */}
-            {/* <div className="search-results-close"></div> */}
-            {/* )} */}
         </div>
     );
 }
 
-export default Header;
+export default HeaderNav;

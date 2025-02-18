@@ -26,17 +26,18 @@ function GlobalProvider({ children }) {
         getInitialStateFromLocalStorage()
     );
 
+    // Fetch Popular Movies
     useEffect(() => {
         getPopularMovies()
             .then((data) => {
                 setPopularMovies(data.results);
-                // console.log(data);
             })
             .catch((error) => {
                 console.error("Error fetching popular movies");
             });
     }, []);
 
+    // Fetch Top Rate Movies
     useEffect(() => {
         getTopRatedMovies()
             .then((data) => {
@@ -47,18 +48,18 @@ function GlobalProvider({ children }) {
             });
     }, []);
 
+    // Fetch Now Playing Movies
     useEffect(() => {
         getNowPlayingMovies()
             .then((data) => {
                 setNowPlayingMovies(data.results);
-                // console.log(data);
-                console.log(data.results);
             })
             .catch((error) => {
                 console.error("Error fetching now playing movies");
             });
     }, []);
 
+    // Fetch Upcoming Movies
     useEffect(() => {
         getUpcomingMovies()
             .then((data) => {
@@ -70,6 +71,7 @@ function GlobalProvider({ children }) {
             });
     }, []);
 
+    // Handle favorite movies from local storage
     useEffect(() => {
         localStorage.setItem("favorites", JSON.stringify(favorites));
     }, [favorites]);
@@ -82,8 +84,6 @@ function GlobalProvider({ children }) {
         const newFavorites = favorites.filter((fav) => fav.id !== movie.id);
         setFavorites(newFavorites);
     }
-
-    // console.log(favorites);
 
     return (
         <GlobalContext.Provider

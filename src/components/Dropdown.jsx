@@ -3,6 +3,7 @@ import { GlobalContext } from "../context/GlobalState";
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 
+// Dropdown to filter category in favorites page
 function Dropdown() {
     const {
         popularMovies,
@@ -20,10 +21,12 @@ function Dropdown() {
         }
     }, [favorites, category]);
 
+    // Retrieve the selected option and store the category
     function getCategory(e) {
         setCategory(e.target.value);
     }
 
+    // Filter the favorites list with the selected category
     function filterMovie(category) {
         if (category === "popular") {
             setFilteredMovies(

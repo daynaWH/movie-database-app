@@ -7,6 +7,7 @@ import arrowLeft from "../assets/arrow-left.svg";
 import arrowRight from "../assets/arrow-right.svg";
 import posterUnavailable from "../assets/poster-unavailable.svg";
 
+// Display Poster (default) or Trailer upon clicking the button in the slider in the single movie page
 function PosterTrailerSlider({ movieData, movieTrailer }) {
     const [slider, setSlider] = useState("poster");
 

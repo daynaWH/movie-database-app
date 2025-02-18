@@ -1,12 +1,11 @@
 import { appTitle, TMDB_IMAGE_BASE_URL } from "../globals/globalVariables";
 import { useEffect, useState, useContext } from "react";
-import MovieCard from "../components/MovieCard";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { GlobalContext } from "../context/GlobalState";
+import MovieCard from "../components/MovieCard";
 import Slider from "../components/Slider";
 
 function PageHome() {
-    const [randomMovies, setRandomMovies] = useState([]);
     const [bannerMovieSet, setBannerMovieSet] = useState([]);
     const [sliderIndex, setSliderIndex] = useState(0);
     const { popularMovies, topRatedMovies, nowPlayingMovies, upcomingMovies } =
@@ -22,7 +21,8 @@ function PageHome() {
         }
     }, [nowPlayingMovies]);
 
-    //
+    // Generate 3 random movies from Now Playing category to display in the Hero Slider
+    // Issues fixed and refactored with support of Copilot
     function getRandomMovie() {
         const randomMovies = [];
 
@@ -40,6 +40,7 @@ function PageHome() {
         setBannerMovieSet(randomMovies);
     }
 
+    // Render Banner for each randomly selected movie with movie title and overview
     function renderBanner() {
         return bannerMovieSet.map((movieData, index) => {
             return (

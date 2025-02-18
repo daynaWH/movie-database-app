@@ -27,7 +27,6 @@ function PageAbout() {
             </section>
             <section className="contact">
                 <h2>Contact Us</h2>
-                {/* <div className="contact-icons"> */}
                 <a href="tel:+##########">
                     <img src={phoneIcon} alt="Phone Icon" />
                 </a>
@@ -40,7 +39,6 @@ function PageAbout() {
                 <a href="#">
                     <img src={instaIcon} alt="Instagram Icon" />
                 </a>
-                {/* </div> */}
             </section>
         </main>
     );

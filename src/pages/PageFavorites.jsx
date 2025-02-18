@@ -6,7 +6,9 @@ import Dropdown from "../components/Dropdown";
 
 function PageFavorites() {
     const { favorites } = useContext(GlobalContext);
+
     // Sort movies by id
+    // Referred to the following link:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     favorites.sort((a, b) => (a.id > b.id ? 1 : -1));
 

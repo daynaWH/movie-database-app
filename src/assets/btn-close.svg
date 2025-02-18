@@ -1,7 +1,24 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier"> <g id="Edit / Close_Circle"> <path id="Vector" d="M9 9L11.9999 11.9999M11.9999 11.9999L14.9999 14.9999M11.9999 11.9999L9 14.9999M11.9999 11.9999L14.9999 9M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g> </g>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512">
+  <!-- Generator: Adobe Illustrator 29.3.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 146)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill-rule: evenodd;
+      }
+
+      .st0, .st1 {
+        fill: #fff;
+      }
+
+      .st2 {
+        fill: #11172b;
+      }
+    </style>
+  </defs>
+  <circle class="st2" cx="256" cy="249.6" r="220.2"/>
+  <g id="SVGRepo_iconCarrier">
+    <path class="st1" d="M163,195.9c-9.1-9.1-9.1-23.8,0-32.9,9.1-9.1,23.8-9.1,32.9,0l60.2,60.2,60.2-60.2c9.1-9.1,23.8-9.1,32.9,0,9.1,9.1,9.1,23.8,0,32.9l-60.2,60.2,60.1,60.1c9.1,9.1,9.1,23.8,0,32.9-9.1,9.1-23.8,9.1-32.9,0l-60.1-60.1-60.2,60.2c-9.1,9.1-23.8,9.1-32.9,0-9.1-9.1-9.1-23.8,0-32.9l60.2-60.2-60.2-60.2Z"/>
+    <path class="st0" d="M512,256c0,141.4-114.6,256-256,256S0,397.4,0,256,114.6,0,256,0s256,114.6,256,256ZM46.7,256c0,115.6,93.7,209.3,209.3,209.3s209.3-93.7,209.3-209.3S371.6,46.7,256,46.7,46.7,140.4,46.7,256Z"/>
+  </g>
+</svg>

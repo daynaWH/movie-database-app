@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatRating, formatRunTime } from "../utilities/toolbelt";
 import { getMovieById, getCast, getTrailer } from "../utilities/api";
+import PosterTrailerSlider from "../components/PosterTrailerSlider";
 import rating from "../assets/rating-star.svg";
 import profileUnavailable from "../assets/profile-unavailable.png";
-import PosterTrailerSlider from "../components/PosterTrailerSlider";
 
 function PageSingleMovie() {
     const [movieData, setMovieData] = useState(null);
     const [movieCast, setMovieCast] = useState(null);
     const [movieTrailer, setMovieTrailer] = useState(null);
 
-    // fetch the id parameter from react router using useParams
+    // Fetch the id parameter from react router
     const { id } = useParams();
 
     useEffect(() => {
@@ -21,6 +21,7 @@ function PageSingleMovie() {
         }
     }, []);
 
+    // Fetch movie data
     useEffect(() => {
         getMovieById(id)
             .then((data) => {
@@ -32,6 +33,7 @@ function PageSingleMovie() {
             });
     }, [id]);
 
+    // Fetch Cast data of the movie
     useEffect(() => {
         getCast(id)
             .then((data) => {
@@ -43,6 +45,7 @@ function PageSingleMovie() {
             });
     }, [id]);
 
+    // Fetch trailer data
     useEffect(() => {
         getTrailer(id)
             .then((data) => {
@@ -70,12 +73,14 @@ function PageSingleMovie() {
                             <p>{formatRating(movieData.vote_average)}</p>
                         </div>
                     </div>
+
                     <section className="slider-wrapper">
                         <PosterTrailerSlider
                             movieData={movieData}
                             movieTrailer={movieTrailer}
                         />
                     </section>
+
                     <section className="section-bottom">
                         <div className="basic-info">
                             <p>{movieData.release_date}</p>
@@ -86,7 +91,7 @@ function PageSingleMovie() {
                             <h2>Synopsis</h2>
                             <p>{movieData.overview}</p>
                         </div>
-                        {/* cast */}
+
                         <h2>Cast</h2>
                         <div className="cast">
                             {movieCast &&

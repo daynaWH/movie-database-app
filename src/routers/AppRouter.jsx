@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalProvider } from "../context/GlobalState";
-import Header from "../components/Header";
+import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import PageHome from "../pages/PageHome";
 import PageSingleMovie from "../pages/PageSingleMovie";
-import PageAbout from "../pages/PageAbout";
 import PageFavorites from "../pages/PageFavorites";
+import PageAbout from "../pages/PageAbout";
 import PageNotFound from "../pages/PageNotFound";
 
 function AppRouter() {
     return (
         <BrowserRouter>
             <GlobalProvider>
-                <Header />
+                <HeaderNav />
                 <Routes>
                     <Route path="/" element={<PageHome />} />
                     <Route path="/movie/:id" element={<PageSingleMovie />} />
