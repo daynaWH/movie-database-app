@@ -1,50 +1,12 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// HomePage
-
-.movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.submenu {
-    color: white;
-    list-style: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-
-    #{$link-hover-selector} {
-        color: #30469d;
-        background-color: white;
-    }
-}
-
-.tablist {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 1rem 2rem;
-}
-
-// span.active {
-//     width: 1rem;
-//     height: 1rem;
-// }
-
-// span.default {
-//     width: 1rem;
-//     height: 1rem;
-// }
-
 .hero-slider {
     display: flex;
     flex-wrap: nowrap;
     position: relative;
     overflow: hidden;
+    max-height: 40rem;
 
     img {
         width: 100vw;
@@ -52,19 +14,21 @@
 
     .banner-info {
         position: absolute;
-        background: #282828ae;
+        background: $hover-background;
         bottom: 0;
         width: 80%;
-        margin: 0 1rem 2.5rem;
+        margin: 0 2rem 2.5rem;
         padding: 0 0.5rem;
         max-height: 50%;
+        border-radius: 0.8rem;
+        border: 1px solid $blue;
+        box-shadow: $blue -0.5rem 0.3rem 0.5rem;
 
         h1 {
             font-size: 0.9rem;
         }
 
         p {
-            font-size: 0.7rem;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -76,7 +40,7 @@
             padding: 0.5rem 1.5rem 1rem;
 
             h1 {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 margin: 0.5rem 0;
             }
         }
@@ -108,13 +72,13 @@
         cursor: pointer;
 
         @include mq($tablet) {
-            width: 1.5rem;
-            height: 1.5rem;
+            width: 1.1rem;
+            height: 1.1rem;
         }
     }
 
     button.active {
-        background-color: yellow;
+        background-color: $yellow;
     }
 
     .hidden {
@@ -126,9 +90,46 @@
     }
 }
 
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include mq($tablet) {
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+}
+
+.submenu {
+    color: $white;
+    list-style: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    @include mq($tablet) {
+        margin: 1rem;
+    }
+
+    #{$link-hover-selector} {
+        color: $blue;
+        background-color: $white;
+    }
+}
+
+.tablist {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 1rem 2rem;
+}
+
+// Page Not Found
 .page-not-found section {
-    background-color: #ffffffdd;
-    color: black;
+    background-color: $white;
+    color: $navy;
     margin: 2rem auto;
     padding: 1rem 1rem 5rem;
     text-align: center;
@@ -136,6 +137,6 @@
 
     h2,
     a {
-        color: black;
+        color: $black;
     }
 }

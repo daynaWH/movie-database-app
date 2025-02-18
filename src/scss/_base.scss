@@ -23,19 +23,19 @@ body {
         "main"
         "footer";
     grid-template-rows: 5rem auto 8rem;
-}
 
-main {
-    margin: 0 auto;
-    grid-area: main;
-    width: 100vw;
-}
+    main {
+        margin: 0 auto;
+        grid-area: main;
+        width: 100vw;
+    }
 
-header {
-    grid-area: header;
-}
+    header {
+        grid-area: header;
+    }
 
-footer {
-    grid-area: footer;
-    margin-top: 2rem;
+    footer {
+        grid-area: footer;
+        margin-top: 2rem;
+    }
 }

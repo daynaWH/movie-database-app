@@ -6,3 +6,9 @@
         @content;
     }
 }
+
+@mixin mobile-only($w) {
+    @media (max-width: $w) {
+        @content;
+    }
+}

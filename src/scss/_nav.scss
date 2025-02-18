@@ -3,7 +3,7 @@
 
 header,
 footer {
-    background-color: #11172b;
+    background-color: $navy;
 
     .logo {
         height: 2.5rem;
@@ -11,39 +11,29 @@ footer {
 }
 
 header {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    top: 0;
     width: 100%;
     padding: 1rem;
     z-index: 100;
 
-    .nav-menu {
-        // display: none;
-        // height: 0;
-        // // height: 100vh;
-        // background-color: #11172b;
-        // overflow: hidden;
-        // visibility: hidden;
-        // transition: height 0.5s ease, visibility 0s 0.5s;
+    @include mq($tablet) {
+        padding: 1rem 2rem;
+    }
 
+    .nav-menu {
         ul {
             display: flex;
+            flex-direction: column;
             margin-top: 5rem;
-            @include mq($tablet) {
-                gap: 3rem;
-                margin: 0;
-            }
-        }
+            padding: 0;
+            align-items: center;
 
-        li {
-            list-style: none;
-            margin: 2rem;
-
-            @include mq($tablet) {
-                margin: 0;
+            li {
+                list-style: none;
+                margin: 2rem;
             }
         }
 
@@ -51,15 +41,45 @@ header {
             img {
                 height: 3rem;
             }
-
-            @include mq($tablet) {
-                display: none;
-            }
         }
+
         .close-btn {
             position: absolute;
-            right: 1rem;
-            top: 1rem;
+            right: 1.5rem;
+            top: 1.5rem;
+        }
+
+        @include mobile-only($tablet) {
+            position: fixed;
+            left: -100%;
+            top: 0;
+            height: 100%;
+            width: 80%;
+            background-color: $navy;
+            transition: left 0.5s ease;
+            z-index: 100;
+            overflow: hidden;
+
+            li:not(:first-of-type) {
+                padding: 1rem 5rem;
+                border-bottom: 2px solid;
+            }
+        }
+
+        @include mq($tablet) {
+            ul {
+                flex-direction: row;
+                gap: 3rem;
+                margin: 0;
+
+                li {
+                    margin: 0;
+                }
+            }
+
+            .mobile-only {
+                display: none;
+            }
         }
     }
 
@@ -69,97 +89,59 @@ header {
     }
 
     .hamburger-icon {
-        @media (min-width: 768px) {
-            display: none;
-        }
         img {
             height: 3rem;
         }
-    }
 
-    a.logo {
-        grid-area: middle;
-    }
-
-    .search-icon img {
-        height: 2rem;
+        @include mq($tablet) {
+            display: none;
+        }
     }
 
     button {
         background-color: transparent;
         border: none;
-        cursor: pointer;
     }
 
     button.hidden {
         display: none;
     }
+}
 
-    .searchbar {
-        display: flex;
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        max-width: 80%;
-        background-color: white;
-        overflow: hidden;
-        border-radius: 0.5rem;
+.nav-menu.toggled {
+    left: 0;
+}
 
-        input {
-            padding: 0.5rem 10rem 0.5rem 0;
-            margin: 0.5rem;
-        }
-    }
+// Search Bar
 
-    .searchbar-hidden {
-        display: none;
+.search-icon img {
+    height: 2rem;
+}
+
+.searchbar {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    max-width: 80%;
+    background-color: $white;
+    overflow: hidden;
+    border-radius: 0.5rem;
+
+    input {
+        padding: 0.5rem 10rem 0.5rem 0;
+        margin: 0.5rem;
     }
 }
 
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        height: 100%;
-        width: 80%;
-        background-color: #11172b;
-        transition: left 0.5s ease;
-        z-index: 100;
-
-        ul {
-            flex-direction: column;
-            padding: 0;
-            align-items: center;
-        }
-    }
-
-    .nav-menu.toggled {
-        left: 0;
-    }
-}
-
-// header.nav-open {
-//     transition: height 0.5s ease, visibility 0s;
-//     visibility: visible;
-//     height: 254px;
-// }
-
-.header-hidden {
-    // display: none;
-}
-
-div.open {
-    display: block;
-    background-color: white;
-    position: static;
-    height: 20rem;
+.searchbar-hidden {
+    display: none;
 }
 
 .search-results {
     position: absolute;
     top: 5rem;
-    background-color: #11172b;
+    background-color: $navy;
     width: 100%;
     height: 50%;
     overflow: scroll;
@@ -171,6 +153,8 @@ div.open {
 .search-results-close {
     display: none;
 }
+
+// Footer
 
 footer {
     display: flex;

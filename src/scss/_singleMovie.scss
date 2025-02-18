@@ -2,11 +2,7 @@
 @use "mixins" as *;
 
 .single-movie {
-    padding: 0 2rem;
-
-    h1 {
-        margin-bottom: 0;
-    }
+    padding: 0 3rem;
 
     .single-subheading {
         display: flex;
@@ -34,14 +30,14 @@
 
         p {
             position: initial;
-            color: white;
-            font-size: 1rem;
+            color: $white;
         }
     }
 
     button {
         background-color: transparent;
         border: none;
+
         img {
             width: 2rem;
         }
@@ -126,7 +122,8 @@
         flex-wrap: nowrap;
         gap: 2rem;
         overflow-x: scroll;
-        scrollbar-color: #000000 #ffffff;
+        overflow-y: hidden;
+        scrollbar-color: $navy $white;
 
         .cast-info {
             position: relative;
@@ -144,7 +141,7 @@
 
         .cast-info-hover {
             position: absolute;
-            background-color: #000000a0;
+            background-color: $hover-background;
             top: 0;
             text-align: center;
             padding: 3rem 0;
@@ -157,6 +154,13 @@
             #{$link-hover-selector} {
                 opacity: 100%;
             }
+        }
+    }
+
+    @include mq($tablet) {
+        h1 {
+            border-left: 0.5rem solid $yellow;
+            padding-left: 0.5rem;
         }
     }
 }

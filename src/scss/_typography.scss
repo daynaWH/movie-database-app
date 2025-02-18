@@ -4,33 +4,102 @@
 body {
     font-family: $body-font;
     color: white;
+    line-height: $line-height;
 }
 
 h1,
 h2,
 nav li a {
-    font-family: $heading-font;
+    font-family: $secondary-font;
 }
 
 h1,
 h2 {
-    color: white;
+    text-transform: uppercase;
 }
 
-h2 {
-    font-size: 0.8rem;
+.about,
+.favorites {
+    h1,
+    h2 {
+        color: $yellow;
+        text-align: center;
+    }
 }
+
+// h1
+h1 {
+    color: $white;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.single-movie h1 {
+    font-size: 1.8rem;
+}
+
+// h2
+h2 {
+    color: $yellow;
+    font-size: 1.2rem;
+}
+
+// a
 
 a {
-    color: white;
+    color: $white;
     font-size: 0.8rem;
     font-weight: 500;
     text-decoration: none;
-    cursor: pointer;
+
+    @include mq($tablet) {
+        font-size: 1.1rem;
+    }
 }
 
+nav li a {
+    font-size: 1.5rem;
+
+    @include mq($tablet) {
+        font-size: 1rem;
+    }
+
+    #{$link-hover-selector} {
+        color: $yellow;
+    }
+}
+
+// p
 p {
     font-size: 0.7rem;
+
+    @include mq($tablet) {
+        font-size: 1rem;
+    }
+
+    @include mq($laptop) {
+        font-size: 1.2rem;
+    }
+}
+
+p.movie-title {
+    font-size: 1rem;
+    font-weight: 600;
+    max-width: 7.5rem;
+
+    @include mq($tablet) {
+        font-size: 1.2rem;
+    }
+}
+
+p.short-description {
+    font-size: 0.8rem;
+}
+
+.rating p {
+    font-size: 1rem;
+    color: $black;
+    font-weight: 800;
 }
 
 h2,
@@ -38,17 +107,7 @@ p {
     margin: 0;
 }
 
-nav li a {
-    font-size: 2rem;
-    #{$link-hover-selector} {
-        color: #ffea3d;
-        border-bottom: solid 2px #ffea3d;
-    }
-    @include mq($tablet) {
-        font-size: 1rem;
-    }
-}
-
-button {
+button,
+a {
     cursor: pointer;
 }

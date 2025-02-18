@@ -4,11 +4,8 @@
 .about {
     max-width: 80%;
     text-align: center;
+    padding-top: 3rem;
 
-    h1,
-    h2 {
-        color: #f7d341;
-    }
     h2,
     p {
         margin: 1rem 0;
@@ -26,8 +23,22 @@
     .contact img {
         height: 2rem;
         margin: 0 0.5rem;
+
         #{$link-hover-selector} {
             filter: invert(1);
+        }
+    }
+
+    @include mq($tablet) {
+        max-width: 70%;
+
+        h2,
+        p {
+            margin: 2rem 0;
+        }
+
+        .contact img {
+            height: 3rem;
         }
     }
 }
