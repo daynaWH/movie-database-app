@@ -27,6 +27,8 @@ function Dropdown() {
     }
 
     // Filter the favorites list with the selected category
+    // Referred to the following post for array filtering
+    // https://stackoverflow.com/questions/31005396/filter-array-of-objects-with-another-array-of-objects
     function filterMovie(category) {
         if (category === "popular") {
             setFilteredMovies(
