@@ -22,19 +22,20 @@ function PageHome() {
         }
     }, [nowPlayingMovies]);
 
+    //
     function getRandomMovie() {
-        let randomIndex;
-        let randomMovie;
+        const randomMovies = [];
 
         do {
-            randomIndex = Math.floor(Math.random() * nowPlayingMovies.length);
+            const randomIndex = Math.floor(
+                Math.random() * nowPlayingMovies.length
+            );
             const randomMovie = nowPlayingMovies[randomIndex];
 
-            randomMovies.push(randomMovie);
-        } while (
-            randomMovies.length < 3 &&
-            !randomMovies.includes(randomMovie)
-        );
+            if (!randomMovies.includes(randomMovie)) {
+                randomMovies.push(randomMovie);
+            }
+        } while (randomMovies.length < 3);
 
         setBannerMovieSet(randomMovies);
     }
