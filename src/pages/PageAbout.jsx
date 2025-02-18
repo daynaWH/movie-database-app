@@ -4,6 +4,7 @@ import phoneIcon from "../assets/icon-phone.svg";
 import emailIcon from "../assets/icon-email.svg";
 import facebookIcon from "../assets/icon-facebook.svg";
 import instaIcon from "../assets/icon-instagram.svg";
+import tmdbLogo from "../assets/tmdb.svg";
 
 function PageAbout() {
     useEffect(() => {
@@ -24,6 +25,11 @@ function PageAbout() {
                     Now take your time to choose your new favorite movie and
                     enjoy the show!
                 </p>
+                <p>
+                    This product uses the TMDb API but is not endorsed or
+                    certified by TMDb.
+                </p>
+                <img src={tmdbLogo} alt="TMDB Logo" />
             </section>
             <section className="contact">
                 <h2>Contact Us</h2>

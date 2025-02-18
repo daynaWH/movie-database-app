@@ -76,10 +76,6 @@ p {
     @include mq($tablet) {
         font-size: 1rem;
     }
-
-    @include mq($laptop) {
-        font-size: 1.2rem;
-    }
 }
 
 p.movie-title {
