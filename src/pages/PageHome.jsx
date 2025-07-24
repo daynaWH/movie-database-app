@@ -54,6 +54,12 @@ function PageHome() {
                     </div>
                     <img
                         src={`${TMDB_IMAGE_BASE_URL}/w780${movieData.backdrop_path}`}
+                        srcSet={`
+                            ${TMDB_IMAGE_BASE_URL}/w780${movieData.backdrop_path} 780w,
+                            ${TMDB_IMAGE_BASE_URL}/w1280${movieData.backdrop_path} 1280w,
+                            ${TMDB_IMAGE_BASE_URL}/original${movieData.backdrop_path} 1920w
+                        `}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 100vw"
                         alt={`Backdrop of ${movieData.title}`}
                     />
                 </div>

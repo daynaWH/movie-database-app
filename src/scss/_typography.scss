@@ -3,7 +3,7 @@
 
 body {
     font-family: $body-font;
-    color: white;
+    color: $white;
     line-height: $line-height;
 }
 
@@ -45,7 +45,6 @@ h2 {
 }
 
 // a
-
 a {
     color: $white;
     font-size: 0.8rem;
